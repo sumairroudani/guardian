@@ -1,0 +1,11 @@
+<% include _header %>
+
+<h1>Admin Panel</h1>
+
+<form action="/edit" method="get">
+  <!-- <input name="displayname" type="text" class="form-control" placeholder="Display name" value="<%= currentUser.displayName || "" %>">
+  <textarea name="bio" class="form-control" placeholder="Tell us about yourself!"><%= currentUser.bio || "" %></textarea> -->
+  <input type="submit" value="View" class="btn btn-primary btn-block" />
+</form>
+
+<% include _footer %>

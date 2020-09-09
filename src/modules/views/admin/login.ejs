@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="#">
+        <title>Guardian HTML Form</title>
+        <!-- CSS STYLES -->
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+        <link type="text/css" href="../../../assets/vendors/bs/css/bootstrap.css" rel="stylesheet">
+        <link type="text/css" href="../../../assets/vendors/faicon/css/font-awesome.css" rel="stylesheet">
+        <link type="text/css" href="../../../assets/vendors/multisteps/jquery.steps.css" rel="stylesheet">
+        <link type="text/css" href="../../../assets/vendors/aos/aos.css" rel="stylesheet">
+        <link type="text/css" href="../../../assets/vendors/dtpicker/jquery.datetimepicker.css" rel="stylesheet">
+        <link type="text/css" href="../../../assets/css/wpb_style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://design9tech.com/Guardian/css/new_account.css">
+    </head>
+    <body style="background-color: #000;">
+        <section class="wpb_loader"><div class="loader"></div></section>
+       
+
+       <div class="container-fluid" style="background-color: #000;">
+    <div class="container"> 
+        <br><br><br>
+        <!-- Rigister form -->
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <form action="/admin/login" method="post">
+
+                             <div class="reg_form">
+                            <h3 class="text-center"><b>Admin Sign In</b></h3>
+                            <hr>
+                            <%- include('messages'); -%>
+
+                            <input 
+                            name="email" type="email" 
+                            class="form-control" placeholder="Email" 
+                            required autofocus 
+                            value="<%= typeof email != 'undefined' ?    email : '' %>" />
+                            <hr>
+                            <input name="password" type="password" class="form-control" placeholder="Password" required>
+                            <hr>
+                            <input type="submit" value="Log in" class="btn btn-success btn-lg form-contro"> 
+                         
+                            </div>
+                </form>
+               
+            </div>  
+            <div class="col-md-2"></div>
+            
+        </div>
+        <!-- End -->
+        <br><br><br>
+
+    </div>
+</div>
+
+    </body>
+    <!-- JS SCRIPTS -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
+    <script type="text/javascript" src="../../../assets/vendors/jquery/popper.min.js"></script>
+    <script type="text/javascript" src="../../../assets/vendors/bs/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../../../assets/vendors/multisteps/jquery.steps.js"></script>
+    <script type="text/javascript" src="../../../assets/vendors/aos/aos.js"></script>
+    <script type="text/javascript" src="../../../assets/vendors/dtpicker/jquery.datetimepicker.full.js"></script>
+    <script type="text/javascript" src="../../../assets/js/wpb_scripts.js"></script>
+    <script type="text/javascript" src="../../../assets/js/wpb_code.js"></script>
+
+
+
+</html>

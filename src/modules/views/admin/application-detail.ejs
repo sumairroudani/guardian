@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Guardian Admin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./../../assets/css/main.css">
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-sm-4 np-lft0">
+                <div class="dashb-leftarea">
+                    <div class="toggle-btn">
+                          <button onclick="openNav()"><i class="fa fa-bars" aria-hidden="true"></i></button>
+                      </div>
+                      <div class="dblogo"><img src="./../../assets/img/logo-black.png"></div>
+                      
+                    <div class="dbnav">
+                        <ul>
+                            <li><a href="/admin/dashboard"><i class="icon icon-1"><img src="../../../assets/img/nav-icon1.png"></i> Dashboard</a></li>
+                            <li><a href="/admin/applications"><i class="icon icon-2"><img src="../../../assets/img/nav-icon2.png" alt=""></i> Applications</a></li>
+                            <li><a href="#"><i class="icon icon-3"><img src="../../../assets/img/nav-icon3.png" alt=""></i> Favourites</a></li>
+                          </ul>
+                    </div>
+                      <div class="dbadmin">
+                      <ul>
+                        <li><a href="#">Admin</a></li>
+                        <li><a href="#"><i class="fa fa-ellipsis-h"></i></a></li>
+                      </ul>
+                    </div>
+
+                </div>
+              
+            </div><!-- // Row // -->
+            <div class="col-md-8  offset-md-1 col-sm-8 p-lr-0">
+                <div class="dbinfo-main">
+                  
+                    <div class="col-md-11 offset-md-1">
+                      <div class="admin-info">
+                        <h3>Welcome back, <strong>Admin</strong></h3>
+                        <div class="admin-tbl">
+                          <div class="client-name">
+                            <h4> <%= user.firstName %>  <%= user.lastName %>  </h4>
+                            <a href="javascript:;"><i class="fa fa-ellipsis-h"></i></a>
+                          </div>
+                          
+    <div class="bs-example">
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#personal-details"> Personal Details <i class="fa fa-plus"></i></button>                  
+                    </h2>
+                </div>
+                <div id="personal-details" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <table class="table acc-tblcutom">
+                            <tbody>
+                          <tr>
+                            <td><strong>First Name</strong></td>
+                            <td><%= user.firstName %></td>
+                            
+                          </tr>
+                          <!-- <tr>
+                            <td><strong>Middle Name</strong></td>
+                            <td>Moe</td>
+                           
+                          </tr> -->
+                          <tr>
+                            <td><strong>Last Name</strong></td>
+                            <td><%= user.lastName %></td>
+                         </tr>
+                         <tr>
+                            <td><strong>Address</strong></td>
+                            <td><%= user.address %></td>
+                         </tr>
+                         <tr>
+                            <td><strong>Apt/Suite</strong></td>
+                            <td><%= user.streetAddress %></td>
+                         </tr>
+                         <tr>
+                            <td><strong>Country</strong></td>
+                            <td><%= user.country %></td>
+                         </tr>
+                         <tr>
+                            <td><strong>States/Province</strong></td>
+                            <td><%= user.province %></td>
+                         </tr>
+                         <tr>
+                            <td><strong>City</strong></td>
+                            <td><%= user.city %></td>
+                         </tr>
+                         <tr>
+                            <td><strong>Zip Code</strong></td>
+                            <td><%= user.zipcode %></td>
+                         </tr>
+
+                          <tr class="adition-title">
+                            <% if(user.differentMailingAddress) {%>
+                            <td class="p-left-15"><strong>Additional Address</strong></td>
+                         </tr>
+                         
+                          <tr>
+                            <td class="p-left-15"><strong>Address</strong></td>
+                            <td><%= user.mailingAddress %></td>
+                         </tr>
+                         <tr>
+                            <td class="p-left-15"><strong>Apt/Suite</strong></td>
+                            <td><%= user.suitNo %></td>
+                         </tr>
+                         <tr>
+                            <td class="p-left-15"><strong>Country</strong></td>
+                            <td><%= user.mailingCountry %></td>
+                         </tr>
+                         <tr>
+                            <td class="p-left-15"><strong>States/Province</strong></td>
+                            <td><%= user.mailingProvince %></td>
+                         </tr>
+                         <tr>
+                            <td class="p-left-15"><strong>City</strong></td>
+                            <td><%= user.mailingCity %></td>
+                         </tr>
+                         <tr>
+                            <td class="p-left-15"><strong>Zip Code</strong></td>
+                            <td><%= user.mailingZipcode %></td>
+                         </tr>
+                         <% } %>
+                         
+                         <tr>
+                            <td><strong>Are You</strong></td>
+                            <td><%= user.martialStatus %></td>
+                         </tr>
+                         
+                         <tr>
+                            <td><strong>Telephone</strong></td>
+                            <td><%= user.teleNum %></td>
+                         </tr>
+                         
+                         <tr>
+                            <td><strong>No. of Dependents</strong></td>
+                            <td><%= user.depandents %></td>
+                         </tr>
+                         <% if(user.trustedPerson) {%>
+                         <tr class="adition-title">
+                            <td class="p-left-15"><strong> Would you like add a Trusted Contact Person</strong></td>
+                         </tr>
+                         <tr>
+                            <td class="p-left-15"><strong>Name</strong></td>
+                            <td><%= user.trustedPersonName %></td>
+                         </tr>
+                          <tr>
+                            <td class="p-left-15"><strong>Phone Number</strong></td>
+                            <td><%= user.trustedPersonPhone %></td>
+                         </tr>
+                          <tr>
+                            <td class="p-left-15"><strong>Email Address</strong></td>
+                            <td><%= user.trustedPersonEmail %></td>
+                         </tr>
+                          <tr>
+                            <td class="p-left-15"><strong>Street Address</strong></td>
+                            <td><%= user.trustedPersonStreet %></td>
+                         </tr>
+                          <tr>
+                            <td class="p-left-15"><strong>Country</strong></td>
+                            <td><%= user.trustedPersonCountry %></td>
+                         </tr>
+                          <tr>
+                            <td class="p-left-15"><strong>State</strong></td>
+                            <td><%= user.trustedPersonState %></td>
+                         </tr>
+                          <tr>
+                            <td class="p-left-15"><strong>City</strong></td>
+                            <td><%= user.trustedPersonCity %></td>
+                         </tr>
+                          <tr>
+                            <td class="p-left-15"><strong>Zip</strong></td>
+                            <td><%= user.trustedPersonZip %></td>
+                         </tr>
+                          <tr>
+                            <td class="p-left-15"><strong>Realationship To Account Holder</strong></td>
+                            <td><%= user.trustedPersonRelation %></td>
+                         </tr>
+                          <tr>
+                            <td class="p-left-15"><strong>Expiration (MM\DD\YYY)</strong></td>
+                            <td><%= moment(user.expDate).format( 'MMM-DD-YYYY') %></td>
+                         </tr>
+                         <% } %>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                    <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#id-information"> Professional Details <i class="fa fa-plus"></i></button>
+                </h2>
+            </div>
+            <div id="id-information" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+
+                    <!-- Nav tabs -->
+                        <ul class="nav nav-tabs">
+                          <li class="nav-item">
+                            <a class="nav-link  <%=(user.employee === 'employed') ? 'active' : ''%>" data-toggle="tab" href="#employed" >Employed </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link <%=(user.employee === 'self_employee') ? 'active' : ''%>" data-toggle="tab" href="#s-employed">Self Employed</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link <%=(user.employee === 'not_employee') ? 'active' : ''%>" data-toggle="tab" href="#not-employed">Not Employed</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link <%=(user.employee === 'retired') ? 'active' : ''%>" data-toggle="tab" href="#retired">Retired</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link <%=(user.employee === 'other_bussi') ? 'active' : ''%>" data-toggle="tab" href="#other">other</a>
+                          </li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                          <div class="tab-pane container <%=(user.employee === 'employed') ? 'active' : 'fade'%>" id="employed">
+                              <table class="table acc-tblcutom">
+                        <tbody>
+                          <% if(user.employee == 'employed') {%>
+                          <tr>
+                            <td><strong>Employer Name</strong></td>
+                            <td><%= user.emplyerName %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Occupation</strong></td>
+                            <td><%= user.occupation %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Address Of Employer</strong></td>
+                            <td><%= user.addressEmploye %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Years With Employer</strong></td>
+                            <td><%= user.yearsEmploye %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Country</strong></td>
+                            <td><%= user.employeeCountry %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>State/Province</strong></td>
+                            <td><%= user.employeeStates %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>City</strong></td>
+                            <td><%= user.employeeCity %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Apt/Suite No</strong></td>
+                            <td><%= user.employeeAptSuite %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Employer's Phone Number</strong></td>
+                            <td><%= user.employeerPhoneNumber %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Fax</strong></td>
+                            <td><%= user.employeerFax %></td>
+                          </tr>
+                          <% } %>
+                      </tbody>
+                  </table>
+
+
+
+                          </div>
+                          <div class="tab-pane container <%=(user.employee === 'self_employee') ? 'active' : 'fade'%>" id="s-employed">
+                                   <table class="table acc-tblcutom">
+                        <tbody>
+                          <% if(user.employee == 'self_employee') {%>
+                          <tr>
+                            <td><strong>Bussiness Name</strong></td>
+                            <td><%= user.emplyerName %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Company Type</strong></td>
+                            <td><%= user.occupation %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Business Address</strong></td>
+                            <td><%= user.addressEmploye %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Years of business</strong></td>
+                            <td><%= user.yearsEmploye %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Country</strong></td>
+                            <td><%= user.employeeCountry %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>State/Province</strong></td>
+                            <td><%= user.employeeStates %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>City</strong></td>
+                            <td><%= user.employeeCity %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Apt/Suite No</strong></td>
+                            <td><%= user.employeeAptSuite %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Business Phone Number</strong></td>
+                            <td><%= user.employeerPhoneNumber %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Fax</strong></td>
+                            <td><%= user.employeerFax %></td>
+                          </tr>
+                          <% } %>
+                      </tbody>
+                  </table>
+                          </div>
+                          <div class="tab-pane container <%=(user.employee === 'not_employee') ? 'active' : 'fade'%>" id="not-employed"> No Information </div>
+                          <div class="tab-pane container <%=(user.employee === 'retired') ? 'active' : 'fade'%>" id="retired"> No Information</div>
+                          <div class="tab-pane container  <%=(user.employee === 'other_bussi') ? 'active' : 'fade'%>" id="other">
+
+
+                        <table class="table acc-tblcutom">
+                        <tbody>
+                          <% if(user.employee == 'other_bussi') {%>
+                          <tr>
+                            <td><strong>Bussiness Name</strong></td>
+                            <td><%= user.emplyerName %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Company Type</strong></td>
+                            <td><%= user.occupation %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Business Address</strong></td>
+                            <td><%= user.addressEmploye %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Years of business</strong></td>
+                            <td><%= user.yearsEmploye %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Country</strong></td>
+                            <td><%= user.employeeCountry %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>State/Province</strong></td>
+                            <td><%= user.employeeStates %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>City</strong></td>
+                            <td><%= user.employeeCity %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Apt/Suite No</strong></td>
+                            <td><%= user.employeeAptSuite %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Business Phone Number</strong></td>
+                            <td><%= user.employeerPhoneNumber %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Fax</strong></td>
+                            <td><%= user.employeerFax %></td>
+                          </tr>
+                          <% } %>
+                      </tbody>
+                  </table>
+
+                              
+                          </div>
+                        </div>
+
+
+                   
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#income-details"> ID Information <i class="fa fa-plus"></i></button>                     
+                </h2>
+            </div>
+            <div id="income-details" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                        <table class="table acc-tblcutom">
+                        <tbody>
+                        
+                          <tr>
+                            <td><strong>Date of Birth </strong></td>
+                            <td><%= moment(user.dateOfBirth).format( 'MMM-DD-YYYY') %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>ID Type</strong></td>
+                            <td><%= user.idType %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>ID Number</strong></td>
+                            <td><%= user.idNumber %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Expiration  </strong></td>
+                            <td><%=  moment(user.licenseExp).format( 'MMM-DD-YYYY') %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Place/Country of issuance</strong></td>
+                            <td><%= user.placeCountry %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Issue Date </strong></td>
+                            <td><%=  moment(user.issueDate).format( 'MMM-DD-YYYY') %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Country of Tax Residence </strong></td>
+                            <td><%= user.taxResidance %></td>
+                          </tr>
+                      </tbody>
+                  </table>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#funding-details"> Income Details <i class="fa fa-plus"></i></button>                     
+                </h2>
+            </div>
+            <div id="funding-details" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                     <table class="table acc-tblcutom">
+                        <tbody>
+                        
+                          <tr>
+                            <td><strong>Annual Income </strong></td>
+                            <td><%= user.anualIncome %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Net Worth </strong></td>
+                            <td><%= user.netWorth %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Liquid Net Worth </strong></td>
+                            <td><%= user.liquidNetWorth %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>TAX RATE </strong></td>
+                            <td><%= user.taxRate %></td>
+                          </tr>
+                      </tbody>
+                  </table>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="risk-acceptance">
+                <h2 class="mb-0">
+                    <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#risk-acceptance"> Funding Details <i class="fa fa-plus"></i></button>                     
+                </h2>
+            </div>
+            <div id="risk-acceptance" class="collapse" aria-labelledby="risk-acceptance" data-parent="#accordionExample">
+                <div class="card-body">
+                    <table class="table acc-tblcutom">
+                        <tbody>
+                        
+                          <!-- <tr>
+                            <td><strong>I am funding this account with </strong></td>
+                            <td>Dooley</td>
+                          </tr> -->
+                          <tr class="adition-title">
+                              <td><strong>Funding Details</strong></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Name of the bank </strong></td>
+                            <td><%= user.bankFunding %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>ABA Swift </strong></td>
+                            <td><%= user.routing %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Account Number</strong></td>
+                            <td><%= user.accNum %></td>
+                          </tr>
+                      </tbody>
+                  </table>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#investment-experience"> Risk Acceptance <i class="fa fa-plus"></i></button>                     
+                </h2>
+            </div>
+            <div id="investment-experience" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                   <table class="table acc-tblcutom">
+                        <tbody>
+                        
+                          <tr>
+                            <td><strong><%= user.accountRisk %></strong></td>
+                            <td>Yes</td>
+                          </tr>
+                          
+
+                          <tr class="adition-title">
+                              <td><strong>Financial Situation and Needs, Liquidity Considerations and Tax Status</strong></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Annual Expenses </strong></td>
+                            <td><%= user.expenses %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Special Expenses </strong></td>
+                            <td><%= user.specialExp %></td>
+                          </tr>
+                          <tr>
+                            <td><strong>Liquidity Needs</strong></td>
+                            <td><%= user.liquidityExp %></td>
+                          </tr>
+                           <tr class="adition-title">
+                              <td><strong>The expected period you plan to achieve your financial goal(s)</strong></td>
+                          </tr>
+                          <tr>
+                            <td><strong>The expected period</strong></td>
+                            <td><%= user.financialGoal %></td>
+                          </tr>
+                      </tbody>
+                  </table>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#invest-exp"> Investment Expeirence <i class="fa fa-plus"></i></button>                     
+                </h2>
+            </div>
+            <div id="invest-exp" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                   <table class="table acc-tblcutom">
+                        <tbody>
+                          <tr>
+                            <td><strong>Investment</strong></td>
+                            <td><%= user.stocks %> <%= user.bond %> <%= user.options  %> <%= user.future %></td>
+                         </tr>
+                         <tr>
+                            <td><strong>Year Of Expirence</strong></td>
+                            <td><%= user.stockOpt %> <%= user.bondOpt %> <%= user.optionsOpt %> <%= user.futureOpt %></td>
+                         </tr>
+                           <tr>
+                            <td><strong>Knowledge</strong></td>
+                            <td><%= user.stockCheck %> <%= user.bondCheck %> <%= user.optionCheck %> <%= user.futureCheck %></td>
+                         </tr>
+                         <tr>
+                             <td><strong>Question 1</strong></td>
+                             <td><%= user.brokerAccount %></td>
+                         </tr>
+                         <tr>
+                             <td><strong>Question 2</strong></td>
+                             <td><%= user.beneficial %></td>
+                         </tr>
+                         <tr>
+                             <td><strong>Question 3</strong></td>
+                             <td><%= user.shareHolder %></td>
+                         </tr>
+                         <tr>
+                             <td><strong>Question 4</strong></td>
+                             <td><%= user.immediate %></td>
+                         </tr>
+                         <tr>
+                             <td><strong>Question 5</strong></td>
+                             <td><%= user.securities %></td>
+                         </tr>
+                         <tr>
+                             <td><strong>Question 6</strong></td>
+                             <td><%= user.institution %></td>
+                         </tr>
+                         <tr>
+                             <td><strong>U.S. Person:</strong></td>
+                             <td><%= (user.taxWitholding == 'U.S. Person') ? 'Yes' : 'No'  %></td>
+                         </tr>
+                         <tr>
+                             <td class="p-left-15"> <strong>I am a U.S citizen or a U.S. Resident Alien or other U.S.</strong></td>
+                             <td><%= (user.underUs == '1') ? 'Yes' : 'No'  %></td>
+                         </tr>
+                         <tr>
+                             <td class="p-left-15"><strong>I am not subject to backup Withholding because</strong></td>
+                             <td><%= (user.underUs == '2') ? 'Yes' : 'No'  %></td>
+                         </tr>
+                         <tr>
+                             <td class="p-left-15"><strong>Certification Instruction</strong></td>
+                             <td><%= (user.taxWitholding == 'Certification Instruction:') ? 'Yes' : 'No'  %></td>
+                         </tr>
+                         <tr>
+                             <td class="p-left-15"><strong>Non Residence Alien</strong></td>
+                             <td><%= (user.taxWitholding == 'Non Residence Alien:') ? 'Yes' : 'No'  %></td>
+                         </tr>
+                     </tbody>
+                 </table>
+                </div>
+            </div>
+        </div>
+
+         <div class="card">
+            <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#disclosures"> Disclosures <i class="fa fa-plus"></i></button>                     
+                </h2>
+            </div>
+            <div id="disclosures" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                    <table class="table acc-tblcutom">
+                        <tbody>
+                          <tr>
+                            <td><strong>Question 1</strong></td>
+                            <td><%= (user.senior == '1') ? 'Yes' : 'No'  %></td>
+                    </tr>
+                     <tr>
+                            <td><strong>Question 2</strong></td>
+                            <td><%= (user.houseHold == '1') ? 'Yes' : 'No'  %></td>
+                    </tr>
+                     <tr>
+                            <td><strong>Company Name</strong></td>
+                            <td><%= user.compnyName %></td>
+                    </tr>
+                    <tr>
+                            <td><strong>Symbol/CUSIP</strong></td>
+                            <td><%= user.symbolCusip %></td>
+                    </tr>
+
+                    <tr>
+                            <td><strong>Question 3</strong></td>
+                            <td><%= (user.municipal == '1') ? 'Yes' : 'No'  %></td>
+                    </tr>
+                     <tr>
+                            <td><strong>Same as Employer</strong></td>
+                            <td><%= user.affiName %></td>
+                    </tr>
+                     <tr>
+                            <td><strong>Affiliated Entity Name</strong></td>
+                            <td><%= user.affiEntityName %></td>
+                    </tr>
+                     <tr>
+                            <td><strong>Address</strong></td>
+                            <td><%= user.affiAdre %></td>
+                    </tr>
+                    <tr>
+                            <td><strong>City</strong></td>
+                            <td><%= user.affiCity %></td>
+                    </tr>
+                    <tr>
+                            <td><strong>State</strong></td>
+                            <td><%= user.affiState %></td>
+                    </tr>
+                    <tr>
+                            <td><strong>ZipCode</strong></td>
+                            <td><%= user.affiZip %></td>
+                    </tr>
+                     <tr>
+                            <td><strong>Yes -I Want the ability to borrow funds in my account</strong></td>
+                            <td><%= (user.optradio == '1') ? 'Yes' : 'No'  %></td>
+                    </tr>
+                     <tr>
+                            <td><strong>Client Agreement</strong></td>
+                            <td><%= (user.stocks == '1') ? 'Yes' : 'No'  %></td>
+                    </tr>
+                    <tr>
+                            <td><strong> Day Trading Risk Disclosure</strong> </td>
+                            <td><%= (user.day == '1') ? 'Yes' : 'No'  %></td>
+                    </tr>
+                    <tr>
+                            <td><strong> Penny Stocks Disclosure </strong></td>
+                            <td><%= (user.penny == '1') ? 'Yes' : 'No'  %></td>
+                    </tr>
+                    <tr>
+                            <td> <strong>Anti Money Laundering Disclosure </strong></td>
+                            <td><%= (user.antiMoney == '1') ? 'Yes' : 'No'  %><%= user.day %></td>
+                    </tr>
+                    <tr>
+                            <td><strong> Understanding Online Trading Risk Disclosure </strong></td>
+                            <td><%= (user.onlineRisj == '1') ? 'Yes' : 'No'  %></td>
+                    </tr>
+                    <tr>
+                            <td><strong> Margin Disclosure 1</strong></td>
+                            <td><%= (user.marginDisc == '1') ? 'Yes' : 'No'  %></td>
+                    </tr>
+                    <tr>
+                            <td><strong>Margin Disclosure 2</strong></td>
+                            <td><%= (user.petren == '1') ? 'Yes' : 'No'  %></td>
+                    </tr>
+                    <tr>
+                            <td><strong>Margin Disclosure 3</strong></td>
+                            <td><%= (user.confirmedElectronic == '1') ? 'Yes' : 'No'  %></td>
+                    </tr>
+                </tbody>
+            </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#identi-proof"> Identification Proof Upload <i class="fa fa-plus"></i></button>                     
+                </h2>
+            </div>
+            <div id="identi-proof" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                    <table class="table acc-tblcutom">
+                        <tbody>
+                          <tr>
+                            <td>Upload a Copy of Government issued ID </td>
+                            <td></td>
+                    </tr>
+                </tbody>
+            </table>
+                </div>
+            </div>
+        </div>
+       
+
+        
+
+
+    </div>
+</div>
+                        </div>
+                      </div>
+                    </div><!-- // Col // -->
+                 
+                </div>
+            </div><!-- // Row // -->
+        </div><!-- // Row // -->
+    </div><!-- // Container-fluid // -->
+
+
+
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/eonasdan-bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="assets/js/script.js"></script>
+</body>
+</html>
+
+
+

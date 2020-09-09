@@ -1,0 +1,186 @@
+const bcrypt = require("bcryptjs");
+const mongoose = require("mongoose");
+
+const SALT_FACTOR = 10;
+
+var userSchema = mongoose.Schema({
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  firstName: { type: String, default: null },
+  lastName: { type: String, default: null },
+  registrationType: { type: String, required: true},
+  productTrade: { type: String, required: true},
+  hearAbout: { type: String, required: true},
+  address: { type: String, default: null },
+  differentMailingAddress: { type: Boolean, default: false },
+  streetAddress: { type: String, default: null },
+  country: { type: String, default: null },
+  province: { type: String, default: null },
+  mailingZipcode: { type: Number, default: null },
+  mailingProvince: { type: String, default: null },
+  mailingAddress: { type: String, default: null },
+  mailingCity: { type: String, default: null },
+  addressEmploye: { type: String, default: null },
+  zipcode: { type: Number, default: null },
+  trustedPerson: { type: Boolean, default: false },
+  trustedPersonName: { type: String, default: null },
+  occupation: { type: String, default: null },
+  teleNum: { type: Number, default: null },
+  city: { type: String, default: null },
+  yearSemploye: { type: Number, default: null },
+  employeeStates: { type: String, default: null },
+  employeeCity: { type: String, default: null },
+  employeeZip: { type: Number, default: null },
+  employeeAptsuite: { type: String, default: null },
+  date: { type: Date, default: null },
+  employeerPhoneNumber: { type: Number, default: null },
+  employeerFax: { type: String, default: null },
+  relationShipAccountHoler: { type: String, default: null },
+  registerationType: { type: String, default: null }, 
+  productToTrade: { type: String, default: null },
+  referer: { type: String, default: null },
+  employeeCountry: { type: String, default: null },
+  martialStatus: { type: String, default: null },
+  employeePhone: { type: Number, default: null },
+  depandents: { type: Number, default: null },
+  trustedPersonEmail: { type: String, default: null },
+  trustedPersonPhone: { type: Number, default: null },
+  trustedPersonStreet: { type: String, default: null },
+  trustedPersonZip: { type: Number, default: null },
+  trustedPersonRelation: { type: String, default: null },
+  employee: { type: String, default: null },
+  emplyerName: { type: String, default: null },
+  bussinessName: { type: String, default: null },
+  companyType: { type: String, default: null },
+  yearsOfBusiness: { type: Number, default: null },
+  bussinessPhone: { type: Number, default: null },
+  trustedPersonState: { type: String, default: null },
+  trustedPersonStreet: { type: String, default: null },
+  trustedPersonCountry: { type: String, default: null },
+  trustedPersonCity: { type: String, default: null },
+  fac: { type: Number, default: null },
+  suitNo: { type: String, default: null },
+  dateOfBirth: { type: Date, default: null },
+  idType: { type: String, default: null },
+  expDate: { type: Date, default: null },
+  mailingCountry: { type: String, default: null },
+  issueDate: { type: Date, default: null },
+  nameOfId: { type: Number, default: null},
+  idNumber: { type: Number, default: null},
+  anualIncome: { type: String, default: null },
+  netWorth: { type: String, default: null },
+  licenseExp: { type: Date, default: null },
+  liquidNetWorth: { type: String, default: null },
+  funding: { type: String, default: null },
+  nameOfBank: { type: String, default: null },
+  accountNo: { type: Number, default: null },
+  baSwift: { type: String, default: null },
+  taxStatus: { type: String, default: null },
+  financialGoal: { type: String, default: null },
+  investment: { type: String, default: null },
+  retireSaving: { type: Boolean, default: false },
+  incomeAccount: { type: Boolean, default: false },
+  taxRate: { type: String, default: null },
+  taxResidance: { type: String, default: null },
+  inheritnce: { type: Boolean, default: false },
+  secuBnefit: { type: Boolean, default: false },
+  bankFunding: { type: String, default: null },
+  brokerAccount: { type: String, default: null },
+  affiZip: { type: Number, default: null },
+  optradio: { type: String, default: null },
+  affiEntityName: { type: String, default: null },
+  affiAdre: { type: String, default: null },
+  affiCity: { type: String, default: null },
+  affiState: { type: String, default: null },
+  optionCheck: { type: String, default: null },
+  futureCheck: { type: String, default: null },
+  bondCheck: { type: String, default: null },
+  senior: { type: String, default: null },
+  beneficial: { type: String, default: null },
+  shareHolder: { type: String, default: null },
+  houseHold: { type: String, default: null },
+  securities: { type: String, default: null },
+  underUs2: { type: String, default: null },
+  taxWitholding2: { type: String, default: null },
+  compnyName: { type: String, default: null },
+  municipal: { type: String, default: null },
+  affiName: { type: String, default: null },
+  underUs: { type: String, default: null },
+  taxWitholding: { type: String, default: null },
+  institution: { type: String, default: null },
+  immediate: { type: String, default: null },
+  stockCheck: { type: String, default: null },
+  bondOpt: { type: String, default: null },
+  optionsOpt: { type: String, default: null },
+  futureOpt: { type: String, default: null },
+  accountRisk: { type: String, default: null },
+  routing: { type: String, default: null },
+  accNum: { type: Number, default: null },
+  clientAgreement: { type: String, default: null },
+  day: { type: String, default: null },
+  penny: { type: String, default: null },
+  borrowInput: { type: String, default: null },
+  antiMoney: { type: String, default: null },
+  onlineRisj: { type: String, default: null },
+  marginDisc: { type: String, default: null },
+  petren: { type: String, default: null },
+  bond: { type: String, default: null },
+  options: { type: String, default: null },
+  future: { type: String, default: null },
+  stockOpt: { type: String, default: null },
+
+  stocks:{type: String, default: null},
+  
+  liquidityExp: { type: String, default: null },
+  specialExp: { type: String, default: null },
+  expenses: { type: String, default: null },
+  otherInput: { type: String, default: null },
+  otherCheckbox: { type: Boolean, default: false },
+  anotherAcc: { type: Boolean, default: false },
+  gift: { type: Boolean, default: false },
+  placeCountry: { type: String, default: null },
+  businessProp: { type: Boolean, default: false },
+  knowledge: { type: String, default: null },
+  brokerage: { type: String, default: null },
+  accountatVelocityClearingLLC: { type: String, default: null },
+  securitiesExchange: { type: String, default: null },
+  financial: { type: String, default: null },
+  withHolding: { type: String, default: null },
+  relativeSeniorPoliticalFigure: { type: String, default: null },
+  confirmedElectronic: { type: String, default: null },
+  sec: { type: String, default: null },
+  companyName: { type: String, default: null },
+  symbolCusip: { type: String, default: null },
+  initialBalance: { type: String, default: null },
+  photo: { type: String, default: null },
+  isApprove: { type: Boolean, default: null },
+  isSubmit: { type: Boolean, default: false },
+  createdAt: { type: Date, default: Date.now },
+});
+
+userSchema.pre("save", function (done) {
+  var user = this;
+
+  if (!user.isModified("password")) {
+    return done();
+  }
+
+  bcrypt.genSalt(SALT_FACTOR, function (err, salt) {
+    if (err) {
+      return done(err);
+    }
+    bcrypt.hash(user.password, salt, function (err, hashedPassword) {
+      if (err) {
+        return done(err);
+      }
+      user.password = hashedPassword;
+      done();
+    });
+  });
+});
+
+
+
+var User = mongoose.model("User", userSchema);
+
+module.exports = User;
